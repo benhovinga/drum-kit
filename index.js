@@ -17,6 +17,7 @@ for (const drum of document.querySelectorAll(".drum")) {
         soundsFolder + drumSounds[this.innerHTML] + soundsExt
       );
       audio.play();
+      buttonAnimation(this.innerHTML);
     });
   }
 }
@@ -25,5 +26,14 @@ document.addEventListener("keydown", function (event) {
   if (drumSounds.hasOwnProperty(event.key)) {
     let audio = new Audio(soundsFolder + drumSounds[event.key] + soundsExt);
     audio.play();
+    buttonAnimation(event.key);
   }
 });
+
+function buttonAnimation(key) {
+  let button = document.querySelector("." + key);
+  button.classList.add("pressed");
+  setTimeout(() => {
+    button.classList.remove("pressed");
+  }, 200);
+}
