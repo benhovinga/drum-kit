@@ -10,6 +10,7 @@ const drumSounds = {
   l: "kick-bass",
 };
 
+// Click events
 for (const drum of document.querySelectorAll(".drum")) {
   if (drumSounds.hasOwnProperty(drum.innerHTML)) {
     drum.addEventListener("click", function () {
@@ -22,6 +23,7 @@ for (const drum of document.querySelectorAll(".drum")) {
   }
 }
 
+// Keyboard events
 document.addEventListener("keydown", function (event) {
   if (drumSounds.hasOwnProperty(event.key)) {
     let audio = new Audio(soundsFolder + drumSounds[event.key] + soundsExt);
@@ -30,6 +32,7 @@ document.addEventListener("keydown", function (event) {
   }
 });
 
+// Animate
 function buttonAnimation(key) {
   let button = document.querySelector("." + key);
   button.classList.add("pressed");
